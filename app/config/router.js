@@ -1,67 +1,84 @@
 import React from 'react';
-import createStackNavigator from 'react-native-screens/createNativeStackNavigator';
+import {Catalog} from '../screens/Catalog/Catalog';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Registration from "../screens/Registration/Registration";
+import Login from "../screens/Login/Login";
 
-const defaultNavigationOptions = {
-  headerShown: false,
-  cardOverlayEnabled: true,
-  cardShadowEnabled: true,
-};
-
-const AuthStack = createStackNavigator();
-const AuthStackScreen = () => (
-  <AuthStack.Navigator
-    headerMode="none"
-    // initialRouteName={!props.route.params?.status && 'PersonalInfo'}
-    >
+ const AuthStack = createNativeStackNavigator();
+ const AuthStackScreen = () => (
+  <AuthStack.Navigator screenOptions={{
+    headerShown: false
+  }}>
     <AuthStack.Screen name="Login" component={Login} />
+    <AuthStack.Screen name="Registration" component={Registration} />
   </AuthStack.Navigator>
 );
 
-const HomeStack = createStackNavigator()
+const HomeStack = createNativeStackNavigator();
 const HomeStackScreen = () => (
   <HomeStack.Navigator headerMode="none">
     <HomeStack.Screen name="Catalog" component={Catalog} />
   </HomeStack.Navigator>
-)
+);
 
-
-
-const RootStack = createStackNavigator()
+const RootStack = createNativeStackNavigator();
 const RootStackScreen = () => {
   return (
     <RootStack.Navigator headerMode="none">
-      {false ? (
-        <>
-          {false ? (
-            <RootStack.Screen
-              name="App"
-              component={HomeStackScreen}
-              options={{
-                animationEnabled: false,
-              }}
-            />
-          ) : (
-            <RootStack.Screen
-              name="Registration"
-              // initialParams={{ status }}
-              component={AuthStackScreen}
-              options={{
-                animationEnabled: false,
-              }}
-            />
-          )}
-        </>
-      ) : (
-        <RootStack.Screen
-          name="Auth"
-          // initialParams={{ status: true }}
-          component={AuthStackScreen}
-          options={{
-            animationEnabled: false,
-          }}
-        />
-      )}
+      <RootStack.Screen
+        name="Auth"
+        // initialParams={{ status: true }}
+        component={AuthStackScreen}
+        options={{
+          animationEnabled: false,
+        }}
+      />
     </RootStack.Navigator>
+    // <RootStack.Navigator headerMode="none">
+    //   {false ? (
+    //     <>
+    //       {false ? (
+    //         <RootStack.Screen
+    //           name="App"
+    //           component={HomeStackScreen}
+    //           options={{
+    //             animationEnabled: false,
+    //           }}
+    //         />
+    //       ) : (
+    //         <RootStack.Screen
+    //           name="Registration"
+    //           // initialParams={{ status }}
+    //           component={AuthStackScreen}
+    //           options={{
+    //             animationEnabled: false,
+    //           }}
+    //         />
+    //       )}
+    //     </>
+    //   ) : (
+    //     <RootStack.Screen
+    //       name="Auth"
+    //       // initialParams={{ status: true }}
+    //       component={AuthStackScreen}
+    //       options={{
+    //         animationEnabled: false,
+    //       }}
+    //     />
+    //   )}
+    // </RootStack.Navigator>
+  );
+};
 
-  )
-}
+const Navigation = () => {
+  return (
+    <NavigationContainer>
+      {/*<RootStackScreen />*/}
+      <AuthStackScreen />
+      {/*<Login />*/}
+    </NavigationContainer>
+  );
+};
+
+export default Navigation;
