@@ -1,28 +1,60 @@
 import React, {useState} from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, TextInput } from "react-native";
+import { styles } from "../Login/styles";
+import Input from "../../components/Input/Input";
+import PersonIcon from "../../components/svgIcon/PersonIcon";
+import KeyIcon from "../../components/svgIcon/KeyIcon";
+import Button from "../../components/Button/Button";
+import colors from "../../constants /styles/colors";
+import Wrapper from "../../components/Wrapper/Wrapper";
 
-export default () => {
+export default ({navigation}) => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   return (
-    <SafeAreaView>
+    <Wrapper>
       <View>
         <Text>
           Image
-        </Text></View>
-      <Text>
-        WelcomeBack
-      </Text>
-      <Text>
-        Please, Log in.
-      </Text>
-      <TextInput/>
-      <TextInput/>
-      <View>
-        <Text>Button</Text>
+        </Text>
       </View>
-      <Text> or</Text>
-      <View>
-        <Text>Button</Text>
+      <View style={styles.content}>
+        <Text style={styles.text}>
+          Hi there
+        </Text>
+        <Text style={[styles.text, styles.bigText]}>
+          Let`s Get Started
+        </Text>
+        <Input
+          icon={<PersonIcon/>}
+          onChangeText={setEmail}
+          placeholder={'Email'}
+        />
+        <Input
+          icon={<KeyIcon/>}
+          onChangeText={setPassword}
+          hideText
+          placeholder={'Password'}
+        />
+        <Button
+          title={'Continue'}
+          bgColor={colors.purpleLight}
+          onPress={()=>{
+            console.log(loginValue)
+            console.log(password)
+          }
+          }
+        />
+        <Text style={styles.text}>
+          or
+        </Text>
+        <Button
+          title={'Login'}
+          bgColor={colors.purpleDark}
+          onPress={()=>{navigation.navigate("Login")}}/>
+
       </View>
-    </SafeAreaView>
+    </Wrapper>
+
   );
 };

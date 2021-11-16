@@ -7,9 +7,12 @@ import Login from "../screens/Login/Login";
 
  const AuthStack = createNativeStackNavigator();
  const AuthStackScreen = () => (
-  <AuthStack.Navigator screenOptions={{
-    headerShown: false
-  }}>
+  <AuthStack.Navigator
+    screenOptions={{
+      headerShown: false
+    }}
+    // options={{gestureDirection: 'vertical-inverted',}}
+  >
     <AuthStack.Screen name="Login" component={Login} />
     <AuthStack.Screen name="Registration" component={Registration} />
   </AuthStack.Navigator>

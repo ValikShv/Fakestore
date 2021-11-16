@@ -10,8 +10,9 @@ export const styles = StyleSheet.create({
     paddingVertical: 5,
     backgroundColor: colors.white,
     borderRadius: 40,
-
-    // width: '80%',
   },
-  input:{},
+  input:{
+    width: '80%',
+    // backgroundColor: 'red',
+  },
 })

@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity, Text, View, TextInput } from "react-nativ
 import { styles } from "./styles";
 import KeyIcon from "../svgIcon/KeyIcon";
 
-export default ({ small, disabled, title, bgColor, onChangeText, color, customStyles, placeholder, icon}) => {
+export default ({disabled, hideText, onChangeText, customStyles, placeholder, icon}) => {
   return(
   <View style={styles.wrapper}>
     {icon}
@@ -13,6 +13,7 @@ export default ({ small, disabled, title, bgColor, onChangeText, color, customSt
       style={styles.input}
       onChangeText={onChangeText}
       placeholder={placeholder}
+      secureTextEntry={hideText}
       // placeholderTextColor={accentColors.lightGray}
     />
   </View>
