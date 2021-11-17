@@ -6,30 +6,9 @@ import ArrowLeft from "../../components/svgIcon/ArrowLeft";
 import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
 import { getItemCatalog } from "../../store/actions/items";
+import ItemCard, { itemCard } from "../../components/ItemCard/ItemCard";
 
 export const Catalog = ({navigation}, title, leftButton, rightButton ) => {
-  const renderItem = (item) => {
-
-    return(
-      <View>
-        <View>
-          <View>
-            <Text>Picture</Text>
-          </View>
-          <View>
-            <Text>
-              title
-              {item.title}
-            </Text>
-            <Text>
-              1000 items
-            </Text>
-          </View>
-        </View>
-        <View></View>
-      </View>
-    )
-  }
   useEffect(()=>{
     getItemCatalog()
   }, [])
@@ -49,6 +28,10 @@ export const Catalog = ({navigation}, title, leftButton, rightButton ) => {
     }
   ]
 
+  const itemPress = (title) => {
+    navigation.navigate('Category', {title})
+  }
+
   return (
     <Wrapper bgColor={'white'}>
       <Header
@@ -61,7 +44,7 @@ export const Catalog = ({navigation}, title, leftButton, rightButton ) => {
       {/*<Button onPress={()=>getItemCatalog()} bgColor={'red'} />*/}
       <FlatList
         data={fakeArr}
-        renderItem={renderItem}
+        renderItem={(item)=>itemCard(item, itemPress)}
         keyExtractor={item => item.id}
       />
     </Wrapper>

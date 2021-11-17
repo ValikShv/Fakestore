@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Registration from "../screens/Registration/Registration";
 import Login from "../screens/Login/Login";
+import { Category } from "../screens/Category/Category";
 
  const AuthStack = createNativeStackNavigator();
  const AuthStackScreen = () => (
@@ -16,7 +17,7 @@ import Login from "../screens/Login/Login";
     <AuthStack.Screen name="Login" component={Login} />
     <AuthStack.Screen name="Registration" component={Registration} />
     <AuthStack.Screen name='Catalog' component={Catalog} />
-    {/*<AuthStack.Screen name='Category' component={Category} />*/}
+    <AuthStack.Screen name='Category' component={Category} />
     {/*<AuthStack.Screen name='ItemCard' component={ItemCard} />*/}
   </AuthStack.Navigator>
 );
