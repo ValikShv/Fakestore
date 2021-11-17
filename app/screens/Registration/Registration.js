@@ -7,6 +7,7 @@ import KeyIcon from "../../components/svgIcon/KeyIcon";
 import Button from "../../components/Button/Button";
 import colors from "../../constants /styles/colors";
 import Wrapper from "../../components/Wrapper/Wrapper";
+import { login } from "../../store/actions/auth";
 
 export default ({navigation}) => {
   const [email, setEmail] = useState('')
@@ -39,11 +40,7 @@ export default ({navigation}) => {
         <Button
           title={'Continue'}
           bgColor={colors.purpleLight}
-          onPress={()=>{
-            console.log(loginValue)
-            console.log(password)
-          }
-          }
+          onPress={()=>login()}
         />
         <Text style={styles.text}>
           or

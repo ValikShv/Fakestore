@@ -15,15 +15,12 @@ import Login from "../screens/Login/Login";
   >
     <AuthStack.Screen name="Login" component={Login} />
     <AuthStack.Screen name="Registration" component={Registration} />
+    <AuthStack.Screen name='Catalog' component={Catalog} />
+    {/*<AuthStack.Screen name='Category' component={Category} />*/}
+    {/*<AuthStack.Screen name='ItemCard' component={ItemCard} />*/}
   </AuthStack.Navigator>
 );
 
-const HomeStack = createNativeStackNavigator();
-const HomeStackScreen = () => (
-  <HomeStack.Navigator headerMode="none">
-    <HomeStack.Screen name="Catalog" component={Catalog} />
-  </HomeStack.Navigator>
-);
 
 const RootStack = createNativeStackNavigator();
 const RootStackScreen = () => {
@@ -37,49 +34,22 @@ const RootStackScreen = () => {
           animationEnabled: false,
         }}
       />
+      <RootStack.Screen
+        name="Home"
+        // initialParams={{ status: true }}
+        component={HomeStackScreen}
+        options={{
+          animationEnabled: false,
+        }}
+      />
     </RootStack.Navigator>
-    // <RootStack.Navigator headerMode="none">
-    //   {false ? (
-    //     <>
-    //       {false ? (
-    //         <RootStack.Screen
-    //           name="App"
-    //           component={HomeStackScreen}
-    //           options={{
-    //             animationEnabled: false,
-    //           }}
-    //         />
-    //       ) : (
-    //         <RootStack.Screen
-    //           name="Registration"
-    //           // initialParams={{ status }}
-    //           component={AuthStackScreen}
-    //           options={{
-    //             animationEnabled: false,
-    //           }}
-    //         />
-    //       )}
-    //     </>
-    //   ) : (
-    //     <RootStack.Screen
-    //       name="Auth"
-    //       // initialParams={{ status: true }}
-    //       component={AuthStackScreen}
-    //       options={{
-    //         animationEnabled: false,
-    //       }}
-    //     />
-    //   )}
-    // </RootStack.Navigator>
   );
 };
 
 const Navigation = () => {
   return (
     <NavigationContainer>
-      {/*<RootStackScreen />*/}
       <AuthStackScreen />
-      {/*<Login />*/}
     </NavigationContainer>
   );
 };
