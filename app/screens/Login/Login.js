@@ -13,7 +13,7 @@ export default ({navigation}) => {
   const [loginValue, setLoginValue] = useState(null)
   const [password, setPassword] = useState(null)
   const loginPress = () => {
-    login()
+    // login()
     navigation.navigate('Catalog')
   }
   return (

@@ -5,8 +5,9 @@ const {width, height} =  Dimensions.get("window")
 
 export const styles = StyleSheet.create({
   headerWrap:{
-    height: height*0.05,
+    height: height*0.1,
     paddingHorizontal: width*0.05,
+    paddingVertical: 10,
     // backgroundColor:'red',
     alignItems: 'center',
     justifyContent: 'space-between',

@@ -7,4 +7,5 @@ export default {
   black: 'black',
   white: 'white',
   transparentWhite: 'rgba(255,255,255,0.3)',
+  lightgray: '#d3d3d3',
 }

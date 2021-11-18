@@ -1,17 +1,24 @@
-import React from 'react'
-import { StyleSheet, TouchableOpacity, Text } from 'react-native'
+import React, { useState } from "react";
+import { StyleSheet, TouchableOpacity, Text, View, FlatList } from "react-native";
 import { styles } from "./styles";
 import SectionList from "react-native/Libraries/Lists/SectionList";
+import colors from "../../constants /styles/colors";
 
-export default ({ small, disabled, title, bgColor, onPress, color, customStyles }) => {
+export default ({ data, value, onPress, customStyles }) => {
+  const [select, setSelect] = useState(value.title)
+  // console.log(data)
+  const Item = (item) =>{
+    return(
+      <TouchableOpacity onPress={() => {onPress(item.item.title); setSelect(item.item.title)}}>
+        <Text style={[{paddingHorizontal: 20, fontSize: 24, color: 'black', paddingVertical: 20,}, item.item.title == select ? {color: colors.black } : {color: colors.lightgray}]}>{item.item.title}</Text>
+      </TouchableOpacity>
+    )}
   return(
-    <SectionList
-      sections={DATA}
-      keyExtractor={(item, index) => item + index}
-      renderItem={({ item }) => <Item title={item} />}
-      renderSectionHeader={({ section: { title } }) => (
-        <Text style={styles.header}>{title}</Text>
-      )}
+    <FlatList
+    data={data}
+    renderItem={item => Item(item)}
+    keyExtractor={item => item.id}
+    horizontal
     />
   )
 }

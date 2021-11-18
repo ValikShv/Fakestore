@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Registration from "../screens/Registration/Registration";
 import Login from "../screens/Login/Login";
 import { Category } from "../screens/Category/Category";
+import { CurrentItem } from "../screens/CurrentItem/CurrentItem";
 
  const AuthStack = createNativeStackNavigator();
  const AuthStackScreen = () => (
@@ -18,7 +19,7 @@ import { Category } from "../screens/Category/Category";
     <AuthStack.Screen name="Registration" component={Registration} />
     <AuthStack.Screen name='Catalog' component={Catalog} />
     <AuthStack.Screen name='Category' component={Category} />
-    {/*<AuthStack.Screen name='ItemCard' component={ItemCard} />*/}
+    <AuthStack.Screen name='CurrentItem' component={CurrentItem} />
   </AuthStack.Navigator>
 );
 

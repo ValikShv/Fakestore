@@ -29,7 +29,7 @@ export const Catalog = ({navigation}, title, leftButton, rightButton ) => {
   ]
 
   const itemPress = (title) => {
-    navigation.navigate('Category', {title})
+    navigation.navigate('Category', {title, fakeArr})
   }
 
   return (
