@@ -7,14 +7,22 @@ import ArrowLeft from "../../components/svgIcon/ArrowLeft";
 import ArrowDown from "../../components/svgIcon/ArrowDown";
 import Carousel from "../../components/Carousel/Carousel";
 import ItemList from "../../components/ItemList/ItemList";
+import { getItemCatalog, getItems } from "../../store/actions/items";
 
 export const Category = ({navigation, route}) => {
   const [selectItem, setSelectItem] = useState(route.params.fakeArr[0])
+
+  useEffect(()=>{
+    getItems()
+  }, [])
+
   const chooseCard = (id) => {
     console.log(id)
     console.log("chooseCardId")
     navigation.navigate('CurrentItem', {id})
   }
+
+
   const fakeArr2 = [
     {
       picture: 'picture',

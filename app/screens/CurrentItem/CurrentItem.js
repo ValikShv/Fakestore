@@ -15,10 +15,6 @@ export const CurrentItem = ({navigation, route}) => {
           icon: <ArrowLeft/>,
           func: ()=>navigation.goBack(),
         }}
-        rightBtn={{
-          icon: <ArrowDown/>,
-          func: ()=>{console.log('rightBtn')},
-        }}
         title={'Category'}
       />
       <View>

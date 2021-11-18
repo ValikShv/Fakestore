@@ -4,9 +4,8 @@ import Wrapper from "../../components/Wrapper/Wrapper";
 import { styles } from "./styles";
 import ArrowLeft from "../../components/svgIcon/ArrowLeft";
 import Header from "../../components/Header/Header";
-import Button from "../../components/Button/Button";
 import { getItemCatalog } from "../../store/actions/items";
-import ItemCard, { itemCard } from "../../components/ItemCard/ItemCard";
+import { itemCard } from "../../components/ItemCard/ItemCard";
 
 export const Catalog = ({navigation}, title, leftButton, rightButton ) => {
   useEffect(()=>{

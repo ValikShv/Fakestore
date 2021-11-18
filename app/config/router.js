@@ -30,7 +30,6 @@ const RootStackScreen = () => {
     <RootStack.Navigator headerMode="none">
       <RootStack.Screen
         name="Auth"
-        // initialParams={{ status: true }}
         component={AuthStackScreen}
         options={{
           animationEnabled: false,
