@@ -1,46 +1,33 @@
 import { fakeStoreUrl } from "../../config/api/axiosConfig";
 import { Alert } from "react-native";
-import { CATALOG_ITEMS } from "../config/actionTypes";
+import { CATALOG_ITEMS, CATEGORY_ITEMS } from "../config/actionTypes";
+import { useDispatch } from "react-redux";
 
+const dispatch = useDispatch
 
-// export const getItemCatalog = () => dispatch => {
-//   console.log('qweqweqweqweqwe START')
-//   fakeStoreUrl
-//     .get('/products/categories')
-//     .then((res)=>{
-//       dispatch({ type: CATALOG_ITEMS, payload: res?.data })
-//       console.log(res.data)
-//       console.log('CatalogThen')
-//     })
-//     .catch(res => {
-//       // Alert.alert("Error in GetItemCatalog", res)
-//       console.log(res)
-//       console.log('CatalogCatch')
-//     })
-// }
-
-export const getItemCatalog = () => async dispatch => {
+export const getItemCatalog = () => (dispatch) => {
   fakeStoreUrl
     .get('/products/categories')
     .then((res)=>{
       dispatch({ type: CATALOG_ITEMS, payload: res?.data })
-      console.log(res.data)
-      console.log('CatalogThen')
+      // console.log(res.data)
+      // console.warn('CatalogThen')
     })
     .catch(res => {
       // Alert.alert("Error in GetItemCatalog", res)
       console.log(res)
-      console.log('CatalogCatch')
+      console.warn('CatalogCatch')
     })
 }
 
 
-export const getItems = () => {
+export const getItems = () => dispatch => {
   fakeStoreUrl
     .get('products/category/jewelery')
     .then((res)=>{
-      console.log(res)
-      console.log('getItamsThen')
+      dispatch({ type: CATEGORY_ITEMS, payload: res?.data })
+      // console.log(res)
+      // console.log('getItamsThen')
     })
     .catch(res => {
       // Alert.alert("Error in login", res)
@@ -48,7 +35,7 @@ export const getItems = () => {
       console.log('getItamsCatch')
     })
 }
-export const getCurrentItem = () => {
+export const getCurrentItem = () => dispatch => {
   fakeStoreUrl
     .get('products/category/jewelery')
     .then((res)=>{

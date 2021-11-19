@@ -1,15 +1,13 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
-// import { accentColors, fonts } from '../constants/styles'
 import { styles } from "./styles";
 import ArrowLeft from "../svgIcon/ArrowLeft";
 
 export default ({ title, leftBtn, rightBtn}) => (
   <View style={styles.headerWrap}>
     {leftBtn ?
-    <TouchableOpacity onPress={leftBtn.func} style={{backgroundColor: 'red', height: 20, width: 20}}>
+    <TouchableOpacity onPress={leftBtn.func}>
       {leftBtn.icon}
-      <ArrowLeft/>
     </TouchableOpacity>:
       <View/>
     }

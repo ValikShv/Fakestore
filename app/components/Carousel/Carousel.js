@@ -5,12 +5,11 @@ import SectionList from "react-native/Libraries/Lists/SectionList";
 import colors from "../../constants /styles/colors";
 
 export default ({ data, value, onPress, customStyles }) => {
-  const [select, setSelect] = useState(value.title)
-  // console.log(data)
+  const [select, setSelect] = useState(value)
   const Item = (item) =>{
     return(
-      <TouchableOpacity onPress={() => {onPress(item.item.title); setSelect(item.item.title)}}>
-        <Text style={[{paddingHorizontal: 20, fontSize: 24, color: 'black', paddingVertical: 20,}, item.item.title == select ? {color: colors.black } : {color: colors.lightgray}]}>{item.item.title}</Text>
+      <TouchableOpacity onPress={() => {onPress(item.item); setSelect(item.item)}}>
+        <Text style={[{paddingHorizontal: 20, fontSize: 24, paddingVertical: 20,}, item.item == select ? {color: colors.white, fontSize: 26 } : {color: colors.lightgray}]}>{item.item}</Text>
       </TouchableOpacity>
     )}
   return(

@@ -15,7 +15,6 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
   },
   picture:{
-  backgroundColor:'red',
   alignItems: 'center',
   justifyContent: 'center',
   width: '75%',
@@ -28,7 +27,7 @@ export const styles = StyleSheet.create({
   },
   titleText:{
   color: colors.black,
-  fontSize: 24,
+  fontSize: 14,
   },
   priceText:{
 

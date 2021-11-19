@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
   wrap:{
     height: height*0.1,
     paddingHorizontal: width*0.1,
-    backgroundColor:'rgba(10,10,10,0.05)',
+    backgroundColor:colors.purpleDark,
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
@@ -21,4 +21,5 @@ export const styles = StyleSheet.create({
   contentWrap: {
     flexDirection: 'row'
   },
+
 })
