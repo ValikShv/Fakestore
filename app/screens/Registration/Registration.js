@@ -1,13 +1,9 @@
 import React, {useState} from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, TextInput } from "react-native";
 import { styles } from "../Login/styles";
-import Input from "../../components/Input/Input";
-import PersonIcon from "../../components/svgIcon/PersonIcon";
-import KeyIcon from "../../components/svgIcon/KeyIcon";
-import Button from "../../components/Button/Button";
 import colors from "../../constants /styles/colors";
-import Wrapper from "../../components/Wrapper/Wrapper";
 import { login } from "../../store/actions/auth";
+import { Button, Input, KeyIcon, PersonIcon, Wrapper } from "../../components";
 
 export default ({navigation}) => {
   const [email, setEmail] = useState('')

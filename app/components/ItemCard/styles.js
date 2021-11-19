@@ -16,6 +16,9 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
   },
   aboutItem: {
+    paddingHorizontal: 10,
+  },
+  contentWrap: {
     flexDirection: 'row'
   },
 })

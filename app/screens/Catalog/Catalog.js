@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
-import Wrapper from "../../components/Wrapper/Wrapper";
+import { FlatList } from "react-native";
 import { styles } from "./styles";
-import ArrowLeft from "../../components/svgIcon/ArrowLeft";
-import Header from "../../components/Header/Header";
 import { getItemCatalog } from "../../store/actions/items";
-import { itemCard } from "../../components/ItemCard/ItemCard";
+import { useSelector } from "react-redux";
+import { ArrowLeft, Header, itemCard, Wrapper } from "../../components";
+import Button from "../../components/Button/Button";
 
-export const Catalog = ({navigation}, title, leftButton, rightButton ) => {
+export const Catalog = ({navigation} ) => {
   useEffect(()=>{
     getItemCatalog()
   }, [])
+  const arr = useSelector(state => {state.items.catalogItems})
   const fakeArr = [
     {
       title: 'one',
@@ -40,7 +40,15 @@ export const Catalog = ({navigation}, title, leftButton, rightButton ) => {
         }}
       title={'Catalog'}
       />
-      {/*<Button onPress={()=>getItemCatalog()} bgColor={'red'} />*/}
+      <Button onPress={()=>{
+        getItemCatalog()
+        console.log('getItemCatalog()')
+        console.log(arr)
+        console.log('arr')
+      }}
+      bgColor={'red'}
+      title={'test'}
+      />
       <FlatList
         data={fakeArr}
         renderItem={(item)=>itemCard(item, itemPress)}
