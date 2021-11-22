@@ -12,7 +12,7 @@ export default ({navigation}) => {
   const loginPress = () => {
     // login(loginValue, password)
     // problem with answer!!!
-    navigation.navigate('Catalog')
+    navigation.navigate('TabNavigationScreen')
   }
   useEffect(()=>{
     if(loginValue.length == 0 || password.length == 0){
@@ -21,6 +21,9 @@ export default ({navigation}) => {
       setDisabled(false)
     }
   }, [loginValue, password])
+
+  useEffect(()=>{})
+
   return (
     <Wrapper>
       <View style={styles.content}>

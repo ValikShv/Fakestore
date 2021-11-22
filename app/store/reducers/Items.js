@@ -1,8 +1,9 @@
-import { CATALOG_ITEMS, CATEGORY_ITEMS } from "../config/actionTypes";
+import { CATALOG_ITEMS, CATEGORY_ITEMS, CURRENT_ITEM } from "../config/actionTypes";
 
 const initialState = {
   catalogItems: null,
   categoryItems: null,
+  currentItem: null,
 };
 
 export default (state = initialState, action) => {
@@ -11,6 +12,8 @@ export default (state = initialState, action) => {
       return {...state, catalogItems: action.payload};
     case CATEGORY_ITEMS:
       return {...state, categoryItems: action.payload};
+    case CURRENT_ITEM:
+      return {...state, currentItem: action.payload};
 
     default:
       return state;

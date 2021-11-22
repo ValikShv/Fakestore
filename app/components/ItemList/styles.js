@@ -6,6 +6,7 @@ const {width, height} =  Dimensions.get("window")
 
 export const styles = StyleSheet.create({
   wrap:{
+    backgroundColor:'red',
     width: width*0.48,
     marginHorizontal: width*0.01,
     backgroundColor:'rgba(10,10,10,0.05)',

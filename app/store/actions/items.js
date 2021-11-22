@@ -1,6 +1,6 @@
 import { fakeStoreUrl } from "../../config/api/axiosConfig";
 import { Alert } from "react-native";
-import { CATALOG_ITEMS, CATEGORY_ITEMS } from "../config/actionTypes";
+import { CATALOG_ITEMS, CATEGORY_ITEMS, CURRENT_ITEM } from "../config/actionTypes";
 import { useDispatch } from "react-redux";
 
 const dispatch = useDispatch
@@ -35,11 +35,12 @@ export const getItems = () => dispatch => {
       console.log('getItamsCatch')
     })
 }
-export const getCurrentItem = () => dispatch => {
+export const getCurrentItem = (id) => dispatch => {
   fakeStoreUrl
-    .get('products/category/jewelery')
+    .get(`https://fakestoreapi.com/products/${id}`)
     .then((res)=>{
-      console.log(res)
+      dispatch({ type: CURRENT_ITEM, payload: res?.data })
+      // console.log(res)
       console.log('CurrentItemThen')
     })
     .catch(res => {

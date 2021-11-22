@@ -12,35 +12,10 @@ export const Category = ({navigation, route}) => {
     dispatch(getItems(route.params.title))
   }, [selectItem])
 
-
   const chooseCard = (id) => {
     navigation.navigate('CurrentItem', {id})
   }
-  const arr =  useSelector(state => state.items.categoryItems)
-  const fakeArr2 = [
-    {
-      picture: 'picture',
-      title: 'one',
-      id: '1',
-      about: 'about about',
-      price: '10$'
-    },
-    {
-      picture: 'picture',
-      title: 'two',
-      id: '2',
-      about: 'about about',
-      price: '10$'
-
-    },
-    {
-      picture: 'picture',
-      title: 'tri',
-      id: '3',
-      about: 'about about',
-      price: '10$'
-    },
-  ]
+  const arr =  useSelector(state => state?.items?.categoryItems)
   return (
     <Wrapper bgColor={colors.purple}>
       <Header
