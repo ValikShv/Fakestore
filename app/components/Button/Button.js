@@ -1,9 +1,8 @@
 import React from 'react'
-import { StyleSheet, TouchableOpacity, Text } from 'react-native'
-// import { accentColors, fonts } from '../constants/styles'
+import { TouchableOpacity, Text } from 'react-native'
 import { styles } from "./styles";
 
-export default ({ small, disabled, title, bgColor, onPress, color, customStyles }) => (
+export default ({ small, disabled, title, bgColor, onPress, color, customStyles, textStyles = styles.text}) => (
   <TouchableOpacity
     style={[
       styles.button,
@@ -15,7 +14,7 @@ export default ({ small, disabled, title, bgColor, onPress, color, customStyles 
     onPress={onPress}>
     <Text
       allowFontScaling={false}
-      style={styles.text}>
+      style={textStyles}>
       {title}
     </Text>
   </TouchableOpacity>

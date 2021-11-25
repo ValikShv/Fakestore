@@ -1,50 +1,82 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, FlatList, TouchableOpacity, Image } from "react-native";
+import { View, Text, FlatList, TouchableOpacity, Image, Modal } from "react-native";
 import { styles } from "./styles";
 import { ArrowLeft, Button, Header, Wrapper } from "../../components";
 import colors from "../../constants /styles/colors";
 import { useDispatch, useSelector } from "react-redux";
-import { getCurrentItem } from "../../store/actions/items";
+import { deleteItems, getCurrentItem } from "../../store/actions/items";
+import BitIcon from "../../components/svgIcon/BitIcon";
+import DefaultModal from "../../components/DefaultModal/DefaultModal";
 
-export const CurrentItem = ({navigation, route}) =>{
-  const dispatch = useDispatch()
-  useEffect(()=>{
-    dispatch(getCurrentItem(route.params.id))
-  }, [])
-  const currentItem = useSelector(state => state.items.currentItem)
-  useEffect(()=>{console.log(currentItem)}, [currentItem])
-  console.log(currentItem)
-  console.log('currentItem.data')
+export const CurrentItem = ({ navigation, route }) => {
+  const dispatch = useDispatch();
+  const deleteItem = id => {
+    dispatch(deleteItems(id));
+    setVisible(!visible);
+    navigation.navigate("Catalog");
+  };
+  useEffect(() => {
+    dispatch(getCurrentItem(route.params.id));
+  }, []);
+  const currentItem = useSelector(state => state.items.currentItem);
+  const [visible, setVisible] = useState(false);
+
   return (
-    <Wrapper bgColor={colors.purple} customStyle={{justifyContent: 'center'}}>
-      <View style={{height: '100%', justifyContent: 'space-between'}}>
-      <Header
-        leftBtn={{
-          icon: <ArrowLeft />,
-          func: ()=>navigation.goBack(),
-        }}
-        title={'Item'}
-      />
-      <View style={{width:'100%', alignItems: 'center' }}>
-        <Image
-          style={{ width: '30   %', height: '30%'}}
-          resizeMode={'contain'}
-          source={{uri: currentItem?.image}}
-        />
-        <View style={{width:'80%'}}>
-          <Text style={{fontSize: 24, color: colors.white}}>
-            {currentItem?.title}
-          </Text>
-          <Text style={{fontSize: 20, color: colors.lightgray}}>
-            {currentItem?.price}$
-          </Text>
+    <>
+      <Wrapper bgColor={colors.purple} customStyle={{ justifyContent: "center" }}>
+        <View style={{ height: "100%", justifyContent: "space-between" }}>
+          <Header
+            leftBtn={{
+              icon: <ArrowLeft />,
+              func: () => navigation.goBack(),
+            }}
+            rightBtn={{
+              icon: <BitIcon />,
+              func: () => setVisible(!visible),
+            }}
+            title={"Item"}
+          />
+          <View style={{ width: "100%", alignItems: "center" }}>
+            <Image
+              style={{ width: "30%", height: "30%" }}
+              resizeMode={"contain"}
+              source={{ uri: currentItem?.image }}
+            />
+            <View style={{ width: "80%" }}>
+              <Text style={{ fontSize: 24, color: colors.white }}>
+                {currentItem?.title}
+              </Text>
+              <Text style={{ fontSize: 20, color: colors.lightgray }}>
+                {currentItem?.price}$
+              </Text>
+            </View>
+          </View>
+          <Button
+            title={"Buy"}
+            onPress={() => {
+              navigation.navigate("TabNavigationScreen");
+            }}
+          />
         </View>
-      </View>
-      <Button
-        title={'Buy'}
-        onPress={()=>{navigation.navigate("TabNavigationScreen")}}
-      />
-      </View>
-    </Wrapper>
+      </Wrapper>
+      <DefaultModal visible={visible} setVisible={setVisible}>
+        <Text style={styles.modalTitle}>Are you sure want to delete 'Some good title'?</Text>
+        <View style={styles.buttonWrap}>
+          <Button
+            title={"Yes, delete"}
+            bgColor={"red"}
+            customStyles={[styles.btnWrap, styles.btnAccept]}
+            textStyles={{ fontWeight: "normal", color: "white" }}
+            onPress={() => deleteItem(route.params.id)}
+          />
+          <Button
+            title={"Cancel"}
+            customStyles={[styles.btnWrap, styles.btnAccept]}
+            textStyles={{ color: "black" }}
+            onPress={() =>{setVisible(!visible)}}
+          />
+        </View>
+      </DefaultModal>
+    </>
   );
 };

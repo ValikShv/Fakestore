@@ -37,7 +37,7 @@ export const getItems = () => dispatch => {
 }
 export const getCurrentItem = (id) => dispatch => {
   fakeStoreUrl
-    .get(`https://fakestoreapi.com/products/${id}`)
+    .get(`/products/${id}`)
     .then((res)=>{
       dispatch({ type: CURRENT_ITEM, payload: res?.data })
       // console.log(res)
@@ -50,4 +50,16 @@ export const getCurrentItem = (id) => dispatch => {
     })
 }
 
+export const deleteItems = id => dispatch => {
+  fakeStoreUrl
+    .delete(`/products/${id}`)
+    .then(res => {
+      console.log(res)
+      console.log('resthendelete')
+    })
+    .catch((res)=>{
+      console.log('rescatchdelete')
+      console.log(res)
+    })
+}
 
