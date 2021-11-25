@@ -63,3 +63,16 @@ export const deleteItems = id => dispatch => {
     })
 }
 
+export const updateItem = (items, id) => dispatch => {
+  fakeStoreUrl
+    .put(`/products/${id}`, {items})
+    .then(res => {
+      console.log(res)
+      console.log('resThen')
+    })
+    .catch(res => {
+      console.log(res)
+      console.log('resCatch')
+    })
+}
+
