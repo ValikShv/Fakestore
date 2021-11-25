@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TouchableOpacity, Text, View, FlatList, Image, TextInput } from "react-native";
 import { styles } from "./styles";
 import { Input } from "../index";
 
 export default ({ value, onChoose, customStyles }) => {
   const [select, setSelect] = useState(true)
-  const choose = (item) => {setSelect(!item)}
   return(
-    <TouchableOpacity onPress={()=>{choose(select)}}>
+    <TouchableOpacity onPress={()=>{
+      setSelect(!select)
+      if (select){
+        // onChoose(value)
+      }
+    }}>
       {select ? (
-        <Input
-        />
-      ): (
+        <Text>валуе</Text>
+      ):(
         <TextInput
         />
       )}

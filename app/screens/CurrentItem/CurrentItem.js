@@ -7,13 +7,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteItems, getCurrentItem } from "../../store/actions/items";
 import BitIcon from "../../components/svgIcon/BitIcon";
 import DefaultModal from "../../components/DefaultModal/DefaultModal";
+import EditIcon from "../../components/svgIcon/EditIcon";
 
 export const CurrentItem = ({ navigation, route }) => {
   const dispatch = useDispatch();
   const deleteItem = id => {
     dispatch(deleteItems(id));
     setVisible(!visible);
-    navigation.navigate("Catalog");
+    navigation.navigate("TabNavigationScreen");
   };
   useEffect(() => {
     dispatch(getCurrentItem(route.params.id));
@@ -31,8 +32,8 @@ export const CurrentItem = ({ navigation, route }) => {
               func: () => navigation.goBack(),
             }}
             rightBtn={{
-              icon: <BitIcon />,
-              func: () => setVisible(!visible),
+              icon: <EditIcon />,
+              func: () => navigation.navigate('EditItem', {currentItem})
             }}
             title={"Item"}
           />
@@ -51,12 +52,19 @@ export const CurrentItem = ({ navigation, route }) => {
               </Text>
             </View>
           </View>
-          <Button
-            title={"Buy"}
-            onPress={() => {
-              navigation.navigate("TabNavigationScreen");
-            }}
-          />
+          <View>
+            <Button
+              title={"Buy"}
+              onPress={() => {
+                navigation.navigate("TabNavigationScreen");
+              }}
+            />
+            <Button
+              title={"Delete"}
+              bgColor={colors.red}
+              onPress={() => setVisible(!visible)}
+            />
+          </View>
         </View>
       </Wrapper>
       <DefaultModal visible={visible} setVisible={setVisible}>
@@ -73,7 +81,9 @@ export const CurrentItem = ({ navigation, route }) => {
             title={"Cancel"}
             customStyles={[styles.btnWrap, styles.btnAccept]}
             textStyles={{ color: "black" }}
-            onPress={() =>{setVisible(!visible)}}
+            onPress={() => {
+              setVisible(!visible);
+            }}
           />
         </View>
       </DefaultModal>

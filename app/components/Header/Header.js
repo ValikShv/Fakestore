@@ -13,7 +13,7 @@ export default ({ title, leftBtn, rightBtn}) => (
     }
     <Text style={[styles.text, styles.bigText]}>{title}</Text>
     {rightBtn ?
-      <TouchableOpacity style={{ height: 10, width: 10}} onPress={rightBtn.func}>
+      <TouchableOpacity onPress={rightBtn.func}>
         {rightBtn.icon}
       </TouchableOpacity>:
       <View/>

@@ -14,13 +14,13 @@ export default ({navigation}) => {
     // problem with answer!!!
     navigation.navigate('TabNavigationScreen')
   }
-  useEffect(()=>{
-    if(loginValue.length == 0 || password.length == 0){
-      setDisabled(true)
-    }else{
-      setDisabled(false)
+  useEffect(() => {
+    if (loginValue.length === 0 || password.length === 0) {
+      setDisabled(true);
+    } else {
+      setDisabled(false);
     }
-  }, [loginValue, password])
+  }, [loginValue, password]);
 
   useEffect(()=>{})
 
@@ -54,7 +54,6 @@ export default ({navigation}) => {
           or
         </Text>
         <Button
-          disabled={disabled}
           title={'Create account'}
           bgColor={colors.purpleDark}
           onPress={()=>{navigation.navigate("Registration")}}/>

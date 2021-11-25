@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity, SafeAreaView, TextInput } from "react-native";
 import { styles } from "../Login/styles";
 import colors from "../../constants /styles/colors";
@@ -8,6 +8,19 @@ import { Button, Input, KeyIcon, PersonIcon, Wrapper } from "../../components";
 export default ({navigation}) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [disabled, setDisabled] = useState(true)
+  const loginPress = () => {
+    // login(loginValue, password)
+    // problem with answer!!!
+    navigation.navigate('TabNavigationScreen')
+  }
+  useEffect(()=>{
+    if(email.length === 0 || password.length === 0){
+      setDisabled(true)
+    }else{
+      setDisabled(false)
+    }
+  }, [email, password])
   return (
     <Wrapper>
       <View>
@@ -36,7 +49,8 @@ export default ({navigation}) => {
         <Button
           title={'Continue'}
           bgColor={colors.purpleLight}
-          onPress={()=>login()}
+          onPress={()=>loginPress()}
+          disabled={disabled}
         />
         <Text style={styles.text}>
           or

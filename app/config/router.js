@@ -13,6 +13,7 @@ import Profile from "../screens/Profile/Profile";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import BoxTabIcon from "../components/svgIcon/BoxTabIcon";
 import UserIcon from "../components/svgIcon/UserIcon";
+import { EditItem } from "../screens/EditItem/EditItem";
 
  const AuthStack = createNativeStackNavigator();
  const AuthStackScreen = () => (
@@ -26,6 +27,7 @@ import UserIcon from "../components/svgIcon/UserIcon";
     <AuthStack.Screen name="TabNavigationScreen" component={TabNavigationScreen} />
     <AuthStack.Screen name='Category' component={Category} />
     <AuthStack.Screen name='CurrentItem' component={CurrentItem} />
+    <AuthStack.Screen name='EditItem' component={EditItem} />
   </AuthStack.Navigator>
 );
 

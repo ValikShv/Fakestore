@@ -5,6 +5,10 @@ const {width, height} =  Dimensions.get("window")
 
 
 export const styles = StyleSheet.create({
+   flatList: {
+      height: 300,
+      paddingHorizontal: 10,
+    },
   wrap:{
     backgroundColor:'red',
     width: width*0.48,
