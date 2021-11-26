@@ -17,9 +17,9 @@ export const styles = StyleSheet.create({
      height: height*0.3,
      backgroundColor: colors.white,
      paddingHorizontal: 10,
+     paddingVertical: 10,
      marginVertical: 15,
   },
-
   contentWrap:{
     borderRadius: 15,
     width: "80%",

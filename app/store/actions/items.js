@@ -76,3 +76,10 @@ export const updateItem = (items, id) => dispatch => {
     })
 }
 
+export const filter = () => dispatch => {
+  fakeStoreUrl
+    .get('/products/category/jewelery?sort=asc\n')
+    .then(res=>{console.log(res)})
+    .catch(res=>{console.log(res,'catch')})
+}
+

@@ -38,11 +38,13 @@ export const CurrentItem = ({ navigation, route }) => {
             title={"Item"}
           />
           <View style={{ width: "100%", alignItems: "center" }}>
+            <View style={styles.imageWrap}>
             <Image
-              style={{ width: "30%", height: "30%" }}
+              style={styles.image}
               resizeMode={"contain"}
               source={{ uri: currentItem?.image }}
             />
+            </View>
             <View style={{ width: "80%" }}>
               <Text style={{ fontSize: 24, color: colors.white }}>
                 {currentItem?.title}
