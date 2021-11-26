@@ -20,7 +20,6 @@ export const styles = StyleSheet.create({
     padding: 10,
     marginLeft: 5,
   },
-  btnAccept: {
-  },
+  btnAccept: {},
   btnCancel:{},
 })

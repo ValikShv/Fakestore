@@ -34,7 +34,7 @@ export const EditItem = ({ navigation, route }) => {
           }}
         />
         <View style={styles.contentWrap}>
-          <View style={styles.underImage}>
+          <View style={styles.imageWrap}>
             <Image
               style={styles.image}
               resizeMode={"contain"}

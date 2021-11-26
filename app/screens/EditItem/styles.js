@@ -8,9 +8,24 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.lightgray
   },
   image:{
+    width: '100%',
+    height: '100%',
   },
+  imageWrap:{
+     borderRadius:20,
+     width: width*0.7,
+     height: height*0.3,
+     backgroundColor: colors.white,
+     paddingHorizontal: 10,
+     marginVertical: 15,
+  },
+
   contentWrap:{
-    width: "100%",
-    alignItems: "center"
+    borderRadius: 15,
+    width: "80%",
+    marginHorizontal: '10%',
+    height: '70%',
+    alignItems: "center",
+    backgroundColor: colors.purpleDark,
   },
 })

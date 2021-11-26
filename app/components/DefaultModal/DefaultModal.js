@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { StyleSheet, TouchableOpacity, Text, View, FlatList, Modal } from "react-native";
+import React from "react";
+import { TouchableOpacity, View, Modal } from "react-native";
 import { styles } from "./styles";
-import SectionList from "react-native/Libraries/Lists/SectionList";
-import colors from "../../constants /styles/colors";
 
 export default ({visible, setVisible, children}) => {
 
@@ -16,7 +14,6 @@ export default ({visible, setVisible, children}) => {
         <TouchableOpacity style={styles.overModal} onPress={() => setVisible(!visible)} />
       </View>
     </Modal>
-
   )
 }
 
